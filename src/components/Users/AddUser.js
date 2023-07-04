@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import Button from '../UI/Button';
 import classes from './AddUser.module.css'
 import ErrorModal from "../UI/ErrorModal";
+import Wrapper from '../Helpers/Wrapper';
 
 const AddUser = (props) => {
 
@@ -47,7 +48,7 @@ const AddUser = (props) => {
     }
 
     return (
-        <>
+        <Wrapper>
             {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
             <Card className={classes.input}>
                 <form onSubmit={addUserHandler}>
@@ -58,14 +59,9 @@ const AddUser = (props) => {
                     <Button type="submit">Add User</Button>
                 </form>
             </Card>
-        </>
+        </Wrapper>
     )
 }
 export default AddUser;
-
-
-
-
-
 
 // state Lifting Up concept props send from child to parent using onAdduser props as callback function inside the AddUser components then and sent props from child componenet as a parameter inside the onAddCallback function
